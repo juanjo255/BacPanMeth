@@ -1,0 +1,111 @@
+# ----------------------------------------------------------------------
+# Data symlinks into project storage (never commit; recreate locally)
+# No trailing slash: git sees a symlink as a file, so "methyl_call/" would NOT match it
+# ----------------------------------------------------------------------
+methyl_call
+flye_asm
+merged_bam
+rename_bams
+data
+data/
+
+# ----------------------------------------------------------------------
+# PacBio reads, alignments and kinetics
+# ----------------------------------------------------------------------
+*.bam
+*.bam.bai
+*.bam.pbi
+*.bai
+*.pbi
+*.cram
+*.sam
+*.h5
+*.subreads.*
+*.hifi_reads.*
+
+# ipdSummary / motifMaker outputs (large; regenerate from the pipeline)
+*_basemods.csv
+*_basemods.gff
+*_basemods_w_motif.gff
+*_motif.csv
+
+# ----------------------------------------------------------------------
+# Sequences, annotations and indexes
+# Small test/reference files can be force-added: git add -f tests/data/<file>
+# ----------------------------------------------------------------------
+*.fastq
+*.fq
+*.fastq.gz
+*.fq.gz
+*.fasta
+*.fa
+*.fna
+*.faa
+*.ffn
+*.fasta.gz
+*.fa.gz
+*.fna.gz
+*.gbff
+*.gbk
+*.gff
+*.gff3
+*.fai
+*.mmi
+*.msh
+
+# ----------------------------------------------------------------------
+# Analysis outputs (motif_QC per-site tables, matrices, figures)
+# Keep small curated tables by force-adding them if needed
+# ----------------------------------------------------------------------
+results/
+results_*/
+output/
+motif_QC/
+motif_sites/
+*.tsv.gz
+*.csv.gz
+*.parquet
+
+# ----------------------------------------------------------------------
+# HPC / SLURM logs
+# ----------------------------------------------------------------------
+slurm_logs/
+slurm-*.out
+*.err
+*.out
+
+# ----------------------------------------------------------------------
+# Local configs that may hold user- or cluster-specific settings
+# ----------------------------------------------------------------------
+*.local.config
+params.local.*
+.env
+secrets.*
+
+# ----------------------------------------------------------------------
+# Python / R / notebooks
+# ----------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.matplotlib/
+.Rhistory
+.RData
+.Rproj.user/
+*.bak
+*.bak_*
+
+# ----------------------------------------------------------------------
+# Editors and OS
+# ----------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# ----------------------------------------------------------------------
+# Claude Code local settings
+# ----------------------------------------------------------------------
+.claude/settings.local.json
